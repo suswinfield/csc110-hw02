@@ -67,7 +67,7 @@ def main ():
     x,y = read_two_ints()
     #saves the xy_multadd output for x and y given above
     xy_multadd = compute_multadd(x,y)
-    #displays the output, x, and y from above
+    #displays x, y, and the output from above
     print_fancy(x,y,xy_multadd)
     print("The End")
 
