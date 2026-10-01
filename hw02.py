@@ -1,51 +1,74 @@
-# Task 1.1:
-#  Complete the function "read_two_ints" below:
+# ------------------------------------------------------
+#        Name: Susannah Winfield
+#       Peers: (add any collaborators)
+#  References: https://www.geeksforgeeks.org/python/how-to-use-a-variable-from-another-function-in-python/
+# ------------------------------------------------------
+"""user input for x and y
+
+first list item displays "give me x:" and saves the user input as an integer named x.
+second item displays "give me y:" and saves the user input as an integer named y.
+
+Returns:
+integers x and y
+"""
 def read_two_ints():
-    # ADD a Docstring for this function
-    # the return shown below is a placeholder to make sure this runs
-    # TODO: complete the function instead of the line shown below
-    return 1, 2
+    x,y = [int(input("give me x: ")),int(input("give me y: "))]
+    return x,y
+"""computes $\frac{a * b}{a + b}$ for user input x and y
 
-# Task 2.1:
-#  Complete the function "compute_multadd" below:
+for any a and b, computes a*b and a+b and saves them as local variables
+prints both the numerator and the denominator
+divides a*b by a+b and saves that value as a global variable
+
+    a_times_b = a*b
+    a_plus_b = a+b
+    ab_multadd = (a*b)/(a+b)
+    
+Returns:
+    ab_multadd (float)
+"""
 def compute_multadd(a, b):
-    # ADD a Docstring for this function
-    # the pass shown below is a placeholder to make sure this runs
-    # TODO: complete the function instead of the line shown below
-    pass
+    #ab_multadd is global so it can be used in print_fancy
+    global ab_multadd
+    #computes numerator(first) and denominator(second)
+    a_times_b,a_plus_b = [a*b,a+b]
+    #divides numerator by denominator
+    ab_multadd = a_times_b/a_plus_b
+    #display numerator and denominator results
+    print("mult result:",a_times_b,"\n""add result:",a_plus_b,end="\n\n")
+    return ab_multadd
+"""displays final computation
 
-# Task 3.1:
-#  Complete the function "print_fancy" below:
+prints 16 asterisks, a, b, ab_multadd, and 16 equal signs in that order
+
+    a = first number in compute_multadd
+    b = second number in compute_multadd
+    ab_multadd = return of compute_multadd
+    
+Returns nothing
+"""
 def print_fancy(a, b, ab_multadd):
-    # ADD a Docstring for this function
-    # the pass shown below is a placeholder to make sure this runs
-    # TODO: complete the function instead of the line shown below
-    pass
+    #prints, a, b, and the final answer in that order
+    print("*"*16,"\n""RESULTS:","\n""first number:",a,"\n""second number:",b,"\n""multadd result:",ab_multadd)
+    print("="*16,end="\n\n")
+"""calls every function
 
+runs read_two_ints and saves the user inputted integers x and y
+runs compute_multadd for x and y, then saves that value as xy_multadd
+    x = user input for x
+    y = user input for y
+    xy_multadd = value of compute_multadd for user input x and y
+    print_fancy(x,y,xy_multadd) = runs print_fancy for given x and y
+    
+Returns nothing
+"""
 def main ():
-    # ADD a Docstring for this function
-    # Task 1.2:
-    #  Add one line below to call read_two_ints (note that it returns two values)
-    #  the call should provide no arguments
-    #  store the returned values into two variables: x and y
-
-    # TODO: add your call instead of this line
-
-    # Task 2.2:
-    #  Add one line below to call multadd (note that it returns one value)
-    #  the call should provide the arguments x, and y you obtained above;
-    #  store the returned value in a variable called xy_multadd
-
-    # TODO: add your call instead of this line
-
-    # Task 3.2:
-    #  Complete The line below to call print_fancy
-    #  the call should provide the arguments x, y, and xy_multadd you obtained above;
-
-    # TODO: add your call instead of this line
-
-
-    # Do not modify this final print statement
+    #calls the funnction read_two_ints and saves x and y
+    x,y = read_two_ints()
+    #saves the xy_multadd output for x and y given above
+    xy_multadd = compute_multadd(x,y)
+    #displays the output, x, and y from above
+    print_fancy(x,y,xy_multadd)
     print("The End")
 
 # Do not modify these two lines
